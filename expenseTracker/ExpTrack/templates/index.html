@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Login Page </title>
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="{% static 'styless.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 
@@ -14,8 +15,8 @@
     <div class="container">
         <div class="login-box">
             <h1> Login </h1>
-            <form action="#" method="POST">
-                
+            <form action="logon1" method="POST">
+                {% csrf_token %}
                 <div class="input-group">
                     <h4><label for="email"> Email ID </label></h4>
                     <input type="email" id="email" name="email" placeholder="." required>
@@ -26,11 +27,19 @@
                 </div>
                 <br>
                 <button type="submit" class="login-btn"> Login </button>
+                <!-- <div class="login-btn">
+                    <input type="submit" value="Sign In">
+                </div> -->
             </form>
-            <p class="signup-link">Don't Have an Account? <a href="\signup.html">Create one</a></p>
+            <p class="signup-link">Don't Have an Account? <a href="\signup">Create one</a></p>
         </div>
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
     </div>
-    
+
 
 </body>
 </html>
