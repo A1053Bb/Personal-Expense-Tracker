@@ -23,7 +23,7 @@ class Issue(models.Model):
         db_table = "issue"
 
 # Login model
-class Login(models.Model):
+class login(models.Model):
     firstname = models.CharField(max_length=50)  # First name of the user
     lastname = models.CharField(max_length=50)  # Last name of the user
     emp_id = models.CharField(max_length=50, unique=True, primary_key=True)  # Employee ID as the primary key
