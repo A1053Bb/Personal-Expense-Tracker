@@ -1,0 +1,116 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group h4, 
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.login-box h1 {
+    color: #444;
+}
+
+.login-btn {
+    background: #007BFF;
+}
+
+
+.signup-box h1 {
+    color: #333;
+}
+
+.signup-btn {
+    background: #007BFF;
+}
+
+
+.signup-link, 
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}

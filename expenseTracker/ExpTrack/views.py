@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from ExpTrack.models import *
 
@@ -9,8 +9,9 @@ def check(request):
 def dashboard(request):
     emp_id = request.session.get('emp_id')
     user = login.objects.get(emp_id=emp_id)
+    txns = Issue.objects.filter(emp_i = user)
 
-    return render(request,"dashboard.html",{'fname':user.firstname,'lname':user.lastname})
+    return render(request,"dashboard.html",{'emp':user.emp_id,'fname':user.firstname,'lname':user.lastname,'trans':txns})
 
 def Login(request):
     return render(request,"index.html")
@@ -65,3 +66,9 @@ def su(request):
 def logout(request):
     request.session.flush()
     return redirect('login')
+
+def income_expense_api(request,emp_id):
+    income = Issue.objects.filter(emp_i = emp_id, txn_type = "Credited").aggregate(total_income = models.Sum('charges'))['total_income'] or 10
+    expenditure = Issue.objects.filter(emp_i = emp_id, txn_type = "Debited").aggregate(total_expenditure = models.Sum('charges'))['total_expenditure'] or 20
+    # print("Income:", income, "Expenditure:", expenditure)
+    return JsonResponse({'income':income, 'expenditure':expenditure})
